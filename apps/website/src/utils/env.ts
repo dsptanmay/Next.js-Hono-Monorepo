@@ -9,8 +9,12 @@ export const envSchema = z.object({
     ])
     .default("development"),
   API_URL: z.string().url(),
-  PORT: z.coerce.number().min(1000).optional(),
 });
 
-const env = envSchema.parse(process.env);
-export default env;
+const { data: env, error } = envSchema.safeParse(process.env);
+if (error) {
+  console.log("❌ Invalid environment variables:");
+  console.error(JSON.stringify(error.flatten().fieldErrors, null, 2));
+  process.exit(1);
+}
+export default env!;
