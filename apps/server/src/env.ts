@@ -9,6 +9,15 @@ const EnvSchema = z.object({
       z.literal("production"),
     ])
     .default("development"),
+  LOG_LEVEL: z.enum([
+    "fatal",
+    "error",
+    "warn",
+    "info",
+    "debug",
+    "trace",
+    "silent",
+  ]),
 });
 
 const { data: env, error } = EnvSchema.safeParse(process.env);
