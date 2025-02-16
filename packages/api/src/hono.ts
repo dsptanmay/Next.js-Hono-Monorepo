@@ -1,4 +1,4 @@
-import type { App } from "backend";
+import type { App } from "server";
 import { hc } from "hono/client";
 
 const client = hc<App>("");
