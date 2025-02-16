@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.66.0",
     "api": "*",
     "hono": "^4.7.1",
     "next": "15.1.7",
